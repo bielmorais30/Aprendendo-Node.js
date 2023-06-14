@@ -1,0 +1,24 @@
+Obs: _qualquer_nome_
+
+1 - Como criar um módulo:
+
+    var _soma_ = function(a,b){
+        return a+b;
+    }
+
+        module.exports = soma;
+
+1.1 - utilizando o módulo:
+    const _somaFunc_ = require("./funcoes/somar");
+    _somaFunc_(n1,n2);
+
+2 - Como pegar um valor do console no node.js: 
+
+    const _readLine_ require("readline")
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    rl.question("Digite seu nome: ", nome =>{
+        console.log("Olá " + nome);
+    });
