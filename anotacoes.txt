@@ -22,3 +22,21 @@ Obs: _qualquer_nome_
     rl.question("Digite seu nome: ", nome =>{
         console.log("Olá " + nome);
     });
+
+3 - Como abrir uma porta utilizando o protocolo http:
+
+    const _http_ = require("http");
+
+    http.createServer(function(req,res){
+        res.end("HelloWorld");
+    }).listen(porta_desejada);
+
+4 - Como criar um package.json com o npm
+
+    npm init
+
+5 - Instalar o express
+
+    para Instalar o express é necessário ter "dependencies": {} no arquivo .json
+    feito isso basta executar o comando: npm install express --save
+    obs: caso queira instalar global/na maquina, é só ultilizar o -g
