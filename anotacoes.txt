@@ -55,3 +55,10 @@ Obs: _qualquer_nome_
     });
 
     obs: __dirname é uma variavel global do node que retorna o diretório atual do arquivo js
+
+7 - Parametros:
+
+    para criar um parametro é só colocar :nome_do_parametro
+    exemplo: app.get("/home/:nome", function(req, res){
+        res.send("Ola " + res.params.nome);
+    })
