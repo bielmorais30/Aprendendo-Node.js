@@ -98,3 +98,40 @@ Obs: _qualquer_nome_
     );                       =  Criar tabelas
 
     DESCRIBE _nomeDaTabela   =  Mostrar composição da tabela
+
+    INSERT INTO usuarios(nome, email, idade) VALUES(
+    "Gabriel Morais",
+    "email@teste.com",
+    18
+    );                       =   Adicionar dados na tabela
+
+    SELECT * FROM _nomeDaTabela;  =  Chamar dados da tabela
+
+    SELECT * FROM usuarios WHERE idade > 100;  = filtrar dados usando where
+
+    SELECT * FROM usuarios WHERE nome LIKE "%Joa%";  = filtrar auto-completando "%valor%"   ou  "valo_"
+
+    DELETE FROM usuarios WHERE nome = "fulano";  =  deletar registros
+
+    UPDATE usuarios SET nome = "Gabriel Morais De Oliveira", email = "teste@gmail.com" WHERE nome = "Gabriel Morais";   =   Atualizar valores
+
+11 - Instalar o sequelize e mysql2:
+
+        npm install --save sequelize
+        npm install --save mysql2
+
+12 - Como se conectar ao BD com sequelize:
+
+        const Sequelize = require("sequelize");
+        const sequelize = new Sequelize("_nomeDaTabela", "_usuario", "_senha", {
+            host: "localhost",  //host do banco de dados
+            dialect: "mysql"  //tipo do banco de dados
+        });
+
+13 - Tratamento de erros:
+
+        sequelize.authenticate().then(function(){  //then caso o sequelize se conecte com sucesso
+            console.log("Conectado com sucesso!")
+        }).catch(function(erro){                    //catch caso o sequelize retorne algum erro
+            console.log("Falha ao se conectar "+erro)
+        });
