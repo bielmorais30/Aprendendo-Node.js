@@ -68,3 +68,33 @@ Obs: _qualquer_nome_
     intalar: npm install nodemon -g
     
     caso de erro ao executar: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+9 - conectar no mysql pelo cmd:
+
+    mysql -h localhost -u root -p
+
+    mysql: variavel path do ambiente, onde o caminho é o da pasta bin do mysql
+
+    -h: Servidor
+
+    -u: nomde do usuario
+
+    -p: senha do bd
+
+10 - mysql commands:
+
+     SHOW DATABASES; = mostras bancos de dados 
+
+     CREATE DATABASE _nomeDoBD;  = Criar um banco de dados
+
+     USE _nomeDoBD;  = Usar banco de dados
+
+     SHOW TABLES;    =  Mostrar tabelas
+
+     CREATE TABLE usuarios(
+        nome VARCHAR(45),
+        email VARCHAR(100),
+        idade INT
+    );                       =  Criar tabelas
+
+    DESCRIBE _nomeDaTabela   =  Mostrar composição da tabela
