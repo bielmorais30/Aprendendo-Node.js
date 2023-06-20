@@ -135,3 +135,23 @@ Obs: _qualquer_nome_
         }).catch(function(erro){                    //catch caso o sequelize retorne algum erro
             console.log("Falha ao se conectar "+erro)
         });
+
+14 - Como criar uma tabela usando o sequelize
+
+        const Postagem = sequelize.define('postagens', {
+            titulo: {
+                type: Sequelize.STRING
+            },
+            conteudo: {
+                type: Sequelize.TEXT
+            }
+        })
+
+        Postagem.sync({force: true})
+
+15 - Como adicionar valores na tabela:
+
+        Postagem.create({
+            titulo: "TITULO",
+            conteudo: "conteudo conteudoconteudo conteudo conteudo"
+        })
