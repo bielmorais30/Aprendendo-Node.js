@@ -155,3 +155,7 @@ Obs: _qualquer_nome_
             titulo: "TITULO",
             conteudo: "conteudo conteudoconteudo conteudo conteudo"
         })
+
+16 - Diferença dos method=""
+
+        GET: envia os dados do formulario pela Url
