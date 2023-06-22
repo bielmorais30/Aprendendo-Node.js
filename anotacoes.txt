@@ -159,3 +159,4 @@ Obs: _qualquer_nome_
 16 - Diferença dos method=""
 
         GET: envia os dados do formulario pela Url
+        POST: não envia os dados pela Url
