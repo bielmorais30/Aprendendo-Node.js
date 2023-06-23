@@ -176,3 +176,20 @@ Obs: _qualquer_nome_
             req.body.conteudo
             res.send("FORMULÁRIO RECEBIDO!! <br><br> Titulo: "+req.body.titulo+"<br>Conteúdo: "+ req.body.conteudo)
         })
+
+18 - Como cadastrar arquivos no bd:
+        // O formulario deverá ter o action direcionado a rota de cadastro
+        // O Post é um módulo que está abrigando o define da minha tabela postagens
+        // exemplo: db.sequelize.define('postagens'...
+        // nele também está contido o módulo onde ocorre a conexão com o BD.
+        
+         app.post('/add', function(req, res){
+            Post.create({
+                titulo: req.body.titulo,
+                conteudo: req.body.conteudo
+            }).then(function(){
+                res.send("Post criado com sucesso!")
+            }).catch(function(error){
+                res.send("Falha na criação do post " + error)
+            })
+        })

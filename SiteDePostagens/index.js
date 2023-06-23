@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars');
-const bodyParser = require('body-parser')
-const db= require('./models/db') 
+const bodyParser = require('body-parser');
+const db= require('./models/db');
+const Post = require('./models/Post');
 
 //Config
     //Template Engine
@@ -22,8 +23,16 @@ const db= require('./models/db')
         })
 
         app.post('/add', function(req, res){
-            req.body.conteudo
-            res.send("FORMULÁRIO RECEBIDO!! <br><br> Titulo: "+req.body.titulo+"<br>Conteúdo: "+ req.body.conteudo)
+            // chamar valor do formulario imput pelo name: req.body.conteudo
+             //res.send("FORMULÁRIO RECEBIDO!! <br><br> Titulo: "+req.body.titulo+"<br>Conteúdo: "+ req.body.conteudo)
+            Post.create({
+                titulo: req.body.titulo,
+                conteudo: req.body.conteudo
+            }).then(function(){
+                res.send("Post criado com sucesso!")
+            }).catch(function(error){
+                res.send("Falha na criação do post " + error)
+            })
         })
 
 
