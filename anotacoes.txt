@@ -160,3 +160,19 @@ Obs: _qualquer_nome_
 
         GET: envia os dados do formulario pela Url
         POST: não envia os dados pela Url
+
+17 - Configurar e instalar o body-parser:
+
+        npm install --save body-parser
+
+        // Body Parser 
+
+        app.use(bodyParser.urlencoded({extended: false}))
+        app.use(bodyParser.json())
+
+        OBS: O bodyParser tem como função passar valores do formulario para o node usando a função req.body._nomeDoInput
+
+        app.post('/add', function(req, res){
+            req.body.conteudo
+            res.send("FORMULÁRIO RECEBIDO!! <br><br> Titulo: "+req.body.titulo+"<br>Conteúdo: "+ req.body.conteudo)
+        })
