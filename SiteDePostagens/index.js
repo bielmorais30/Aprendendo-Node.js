@@ -18,9 +18,13 @@ const Post = require('./models/Post');
 
 // Rotas
 
+        app.get('/', function(req, res){
+            res.render("home");
+        });
+
         app.get('/cad', function(req, res){
-            res.render("formulario")
-        })
+            res.render("formulario");
+        });
 
         app.post('/add', function(req, res){
             // chamar valor do formulario imput pelo name: req.body.conteudo
@@ -29,10 +33,10 @@ const Post = require('./models/Post');
                 titulo: req.body.titulo,
                 conteudo: req.body.conteudo
             }).then(function(){
-                res.send("Post criado com sucesso!")
+                res.redirect('/')
             }).catch(function(error){
                 res.send("Falha na criação do post " + error)
-            })
+            })           
         })
 
 
