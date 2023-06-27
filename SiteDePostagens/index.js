@@ -7,7 +7,7 @@ const Post = require('./models/Post');
 
 //Config
     //Template Engine
-        app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
+        app.engine('handlebars', handlebars.engine({defaultLayout: 'main', runtimeOptions:{allowProtoMethodsByDefault: true, allowProtoPropertiesByDefault: true}}));
         app.set('view engine', 'handlebars');
 
     // Body Parser 
@@ -19,7 +19,13 @@ const Post = require('./models/Post');
 // Rotas
 
         app.get('/', function(req, res){
-            res.render("home");
+            
+            Post.findAll().then(function(result_post){
+                res.render("home", {result_post_bars: result_post});
+                //res.send(result_post)
+            }).catch(function(error){
+                res.send(error)
+            })
         });
 
         app.get('/cad', function(req, res){

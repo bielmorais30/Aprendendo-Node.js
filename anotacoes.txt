@@ -193,3 +193,21 @@ Obs: _qualquer_nome_
                 res.send("Falha na criação do post " + error)
             })
         })
+
+19 - Como exibir dados do banco:
+
+        // a função findAll() é a responsavel por exibir todos os dados
+
+        //usar essa configuração caso não apareça as informações da consulta na tela no handlebars
+        //ela da a permissão ao handlebars de acessar os objetos e suas propriedades
+        app.engine('handlebars', handlebars.engine({defaultLayout: 'main', runtimeOptions:{allowProtoMethodsByDefault: true, allowProtoPropertiesByDefault: true}}));
+        
+        app.get('/', function(req, res){
+            
+            Post.findAll().then(function(result_post){
+                res.render("home", {result_post_bars: result_post});
+                //res.send(result_post)
+            }).catch(function(error){
+                res.send(error)
+            })
+        });
