@@ -211,3 +211,18 @@ Obs: _qualquer_nome_
                 res.send(error)
             })
         });
+
+        // para exibir em ordem decrescente basta adicionareste comando dentro dos paramtros do findAll:
+                {order: [['id', 'DESC']]}
+
+20 - Como deletar dados: 
+
+        app.get('/deletar/:id', function(req, res){
+            Post.destroy({where: {'id': req.params.id}}).then(function(){ //tanto faz o id entre aspas ou sem
+                res.send("Postagem deletada com sucesso!!!") 
+                }).catch(function(erro){
+                    res.send("Esta postagem não existe" + erro)
+            })
+        })
+
+        <a href="/deletar/{{id}}"><button>Excluir</button></a>
