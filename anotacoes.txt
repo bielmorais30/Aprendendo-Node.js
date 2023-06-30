@@ -226,3 +226,7 @@ Obs: _qualquer_nome_
         })
 
         <a href="/deletar/{{id}}"><button>Excluir</button></a>
+
+21 - Mongo DB comando:
+
+        show collections;  = seria equivalente ao SHOW TABLES do mysql
