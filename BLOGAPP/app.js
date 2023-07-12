@@ -3,21 +3,23 @@
     const handlebars = require('express-handlebars');
     const bodyparser = require('body-parser');
     const app = express();
+    const admin = require('./routes/admin');
     //const mongoose = require('mongoose');
 
 // Configurações
     // Body Parser
-        app.use(bodyparser.urlencoded({extended: true}));
-        app.use(bodyparser.json());
+        app.use(express.urlencoded({extended: true}));
+        app.use(express.json());
     // Handle Bars
-        app.engine('handlebars', handlebars({defaultLayout: 'main'}));
+        // ATENÇÃO:                COLOCAR .ENGINE 
+        app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
         app.set('view engine', 'handlebars');
     // Mongoose
         // Em breve
 // Rotas
-
+    app.use('/admin', admin);
 // Outros
     const PORT = 8081;
-    app.linsten(PORT, () => {
+    app.listen(PORT, () => {
         console.log("Servidor Rodando! ")
     })
