@@ -230,3 +230,8 @@ Obs: _qualquer_nome_
 21 - Mongo DB comando:
 
         show collections;  = seria equivalente ao SHOW TABLES do mysql
+
+22 - bootstrap:
+
+    mt-4 :  espaço de 4 unidades do topo
+    <input class="form-control">  :  ajeita o formulario
