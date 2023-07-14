@@ -19,7 +19,7 @@
         app.use(flash());
     // Middleware
         app.use((req, res, next) => {
-            res.locals.success_msg = req.flash("sucess_msg"); // var global
+            res.locals.success_msg = req.flash("success_msg"); // var global
             res.locals.error_msg = req.flash("error_msg");
             next();
         })
