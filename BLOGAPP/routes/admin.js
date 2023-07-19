@@ -93,11 +93,11 @@ router.post('/categorias/edit', (req, res) =>{
         // if(erros.length > 0){
             // res.render('admin/editcategorias/', {erros: erros});
         // }else{
-            Categoria.nome = req.body.nome;
-            Categoria.slug = req.body.slug;
+            categoria.nome = req.body.nome;
+            categoria.slug = req.body.slug;
 
             
-            Categoria.save().then(() => {
+            categoria.save().then(() => {
                 req.flash('success_msg', "Categoria editada com sucesso!");
                 res.redirect('/admin/categorias');
             }).catch((error) => {
@@ -107,7 +107,7 @@ router.post('/categorias/edit', (req, res) =>{
         // }
             
     }).catch((error) => {
-        req.flash('error_msg', "Houve um erro ao editar a categoria");
+        req.flash('error_msg', "Houve um erro ao encontrar a categoria");
         res.redirect('/admin/categorias');
     })
 })
