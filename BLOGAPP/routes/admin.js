@@ -74,25 +74,25 @@ router.get('/categorias/edit/:id', (req, res) => {
 
 router.post('/categorias/edit', (req, res) =>{
     Categoria.findOne({_id: req.body.id}).then((categoria) => {
-        // var erros = [];
+        var erros = [];
 
-        // if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null ){
-        //     erros.push({texto: "Nome inválido"});
-        // };
-        // if(!req.body.slug || typeof req.body.slug == undefined || req.body.slug == null){
-        //     erros.push({texto: "Slug inváligo"});
-        // };
+        if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null ){
+            erros.push({texto: "Nome inválido"});
+        };
+        if(!req.body.slug || typeof req.body.slug == undefined || req.body.slug == null){
+            erros.push({texto: "Slug inváligo"});
+        };
 
-        // if(req.body.nome.length < 2){
-        //     erros.push({texto: "Nome da categoria muito curto"});
-        // };
-        // if(req.body.slug.length < 2){
-        //     erros.push({texto: "Slug da categoria muito curto"});
-        // };
+        if(req.body.nome.length < 2){
+            erros.push({texto: "Nome da categoria muito curto"});
+        };
+        if(req.body.slug.length < 2){
+            erros.push({texto: "Slug da categoria muito curto"});
+        };
 
-        // if(erros.length > 0){
-            // res.render('admin/editcategorias/', {erros: erros});
-        // }else{
+        if(erros.length > 0){
+            res.render('admin/editcategorias', {erros: erros,});
+        }else{
             categoria.nome = req.body.nome;
             categoria.slug = req.body.slug;
 
@@ -104,7 +104,7 @@ router.post('/categorias/edit', (req, res) =>{
                 req.flash('error_msg', "Houve um erro ao editar a categoria!");
                 res.redirect('/admin/categorias');
             })
-        // }
+        }
             
     }).catch((error) => {
         req.flash('error_msg', "Houve um erro ao encontrar a categoria");
