@@ -19,8 +19,8 @@ const Postagem = new Schema({
         require: true
     },
     categoria: {
-        type: Schema.ObjectId,
-        ref: "categorias",
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Categoria",
         require: true
     },
     data: {

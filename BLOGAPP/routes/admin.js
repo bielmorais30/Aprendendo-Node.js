@@ -125,7 +125,12 @@ router.post('/categorias/edit', (req, res) =>{
     });
 
 router.get('/postagens', (req, res) => {
-    res.render("admin/postagens");
+    Postagem.find().lean().sort({data: "desc"}).then((postagens) => { // .lean() optimiza o retorno pra js
+        res.render("admin/postagens", {postagens: postagens});
+    }).catch((error) => {
+        req.flash("error_msg", "Houve um erro ao listar as categorias!");
+        res.redirect('/admin');
+    })
 })
 
 router.get('/postagens/add', (req, res) => {
