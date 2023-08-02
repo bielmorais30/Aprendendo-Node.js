@@ -121,4 +121,19 @@ router.post('/categorias/edit', (req, res) =>{
                 res.redirect('/admin/categorias');
         });
     });
+
+router.get('/postagens', (req, res) => {
+    res.render("admin/postagens");
+})
+
+router.get('/postagens/add', (req, res) => {
+    Categoria.find().lean().then((categorias) => {
+        res.render("admin/addpostagem", {categorias: categorias});
+    }).catch((error) => {
+        req.flash('error_msg', "Houve um erro ao carregar o formulário");
+        res.redirect('/admin');
+    })
+    
+})
+
 module.exports = router
