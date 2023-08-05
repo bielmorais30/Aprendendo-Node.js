@@ -167,7 +167,13 @@ router.post('/postagens/nova', (req, res) => {
         }).catch(() => {
             req.flash('error_msg', "Houve um erro durante o salvamento da postagem");
             res.redirect('/admin/postagens');
-        })
+        });
     }
 });
+
+
+router.get('/postagens/edit/:id', (req, res) => {
+    res.render('admin/editpostagens');
+})
+
 module.exports = router
